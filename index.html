@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Perhitungan Ilmiah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kalkulator Ilmiah</h1>
+        </header>
+
+        <div class="calculator">
+            <!-- Layar Tampilan -->
+            <div class="display-container">
+                <div id="previous-op" class="previous-op"></div>
+                <input type="text" id="display" class="display" readonly value="0">
+            </div>
+
+            <!-- Tombol-tombol Kalkulator -->
+            <div class="buttons">
+                <!-- Baris Fungsi Ilmiah 1 -->
+                <button class="btn func" onclick="appendFunction('Math.sin(')">sin</button>
+                <button class="btn func" onclick="appendFunction('Math.cos(')">cos</button>
+                <button class="btn func" onclick="appendFunction('Math.tan(')">tan</button>
+                <button class="btn func" onclick="appendValue('**')">xʸ</button>
+                <button class="btn danger" onclick="clearDisplay()">AC</button>
+
+                <!-- Baris Fungsi Ilmiah 2 -->
+                <button class="btn func" onclick="appendFunction('Math.sqrt(')">√</button>
+                <button class="btn func" onclick="appendFunction('Math.log10(')">log</button>
+                <button class="btn func" onclick="appendFunction('Math.log(')">ln</button>
+                <button class="btn func" onclick="appendValue('(')">(</button>
+                <button class="btn func" onclick="appendValue(')')">)</button>
+
+                <!-- Angka & Operator Baris 1 -->
+                <button class="btn num" onclick="appendValue('7')">7</button>
+                <button class="btn num" onclick="appendValue('8')">8</button>
+                <button class="btn num" onclick="appendValue('9')">9</button>
+
+                <!-- Angka & Operator Baris 2 -->
+                <button class="btn num" onclick="appendValue('4')">4</button>
+                <button class="btn num" onclick="appendValue('5')">5</button>
+                <button class="btn num" onclick="appendValue('6')">6</button>
+
+                <!-- Angka & Operator Baris 3 -->
+                <button class="btn num" onclick="appendValue('1')">1</button>
+                <button class="btn num" onclick="appendValue('2')">2</button>
+                <button class="btn num" onclick="appendValue('3')">3</button>
+
+                <!-- Angka & Operator Baris 4 -->
+                <button class="btn num" onclick="appendValue('0')">0</button>
+                <button class="btn num" onclick="appendValue('.')">.</button>
+                <button class="btn func" onclick="appendValue('Math.PI')">π</button>
+                <button class="btn action" onclick="deleteLast()">DEL</button>
+                <button class="btn operator" onclick="appendValue('/')">÷</button>
+                <button class="btn operator" onclick="appendValue('*')">×</button>
+                <button class="btn operator" onclick="appendValue('-')">-</button>
+                <button class="btn operator" onclick="appendValue('+')">+</button>
+                <button class="btn equal" onclick="calculate()">=</button>
+            </div>
+        </div>
+
+        <!-- Panel Riwayat Perhitungan -->
+        <div class="history-card">
+            <h3>Riwayat Perhitungan</h3>
+            <ul id="history-list"></ul>
+            <button class="btn-clear-history" onclick="clearHistory()">Hapus Riwayat</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
